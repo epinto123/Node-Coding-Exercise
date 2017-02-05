@@ -3,6 +3,7 @@
 var include = require('include')(__dirname);
 var viewControllers = include('src/controllers');
 var apiControllers = include('src/controllers/api');
+var models = include('src/models')
 
 module.exports = function() {
 	return [
@@ -17,7 +18,10 @@ module.exports = function() {
 			method: 'POST',
 			path: '/api/person',
 			config : {
-				handler: apiControllers.post
+				handler: apiControllers.post,
+				validate: {
+					payload: new models().schema
+				}
 			}
 		},
 		{
