@@ -8,7 +8,7 @@ module.exports = function() {
 	return [
 		{
 			method: 'GET',
-			path: '/person',
+			path: '/',
 			config : {
 				handler: viewControllers.get
 			}
