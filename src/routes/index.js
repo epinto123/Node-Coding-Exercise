@@ -1,7 +1,8 @@
 "use strict";
 
 var include = require('include')(__dirname);
-var taskController = include('src/controllers');
+var viewControllers = include('src/controllers');
+var apiControllers = include('src/controllers/api');
 
 module.exports = function() {
 	return [
@@ -9,7 +10,14 @@ module.exports = function() {
 			method: 'GET',
 			path: '/person',
 			config : {
-				handler: taskController.get
+				handler: viewControllers.get
+			}
+		},
+		{
+			method: 'POST',
+			path: '/api/person',
+			config : {
+				handler: apiControllers.post
 			}
 		},
 		{
@@ -17,7 +25,7 @@ module.exports = function() {
 			path: '/css/{file*}',
 			handler: {
 				directory: {
-					path: 'css'
+					path: 'src/css'
 				}
 			}
 		},
@@ -26,7 +34,25 @@ module.exports = function() {
 			path: '/js/{file*}',
 			handler: {
 				directory: {
-					path: 'js'
+					path: 'src/js'
+				}
+			}
+		},
+		{
+			method: 'GET',
+			path: '/bower_components/angular/{file*}',
+			handler: {
+				directory: {
+					path: 'bower_components/angular'
+				}
+			}
+		},
+		{
+			method: 'GET',
+			path: '/bower_components/jquery/{file*}',
+			handler: {
+				directory: {
+					path: 'bower_components/jquery/dist'
 				}
 			}
 		}

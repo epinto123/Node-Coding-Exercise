@@ -4,7 +4,6 @@ var include = require('include')(__dirname);
 var hapi = require('hapi');
 var hoek = require('hoek');
 var routes = include('src/routes');
-var taskController = include('src/controllers');
 
 var server = new hapi.Server();
 server.connection({ port: 3000, host: 'localhost' });
@@ -33,7 +32,6 @@ server.register(require('inert'), (err) => {
     }
     
     server.start((err) => {
-
         if (err) {
             throw err;
         }
