@@ -25,7 +25,7 @@ module.exports = function() {
 			path: '/css/{file*}',
 			handler: {
 				directory: {
-					path: 'src/css'
+					path: 'node_modules/bootstrap/dist/css'
 				}
 			}
 		},
@@ -34,25 +34,16 @@ module.exports = function() {
 			path: '/js/{file*}',
 			handler: {
 				directory: {
-					path: 'src/js'
+					path: 'node_modules/bootstrap/dist/js'
 				}
 			}
 		},
 		{
 			method: 'GET',
-			path: '/bower_components/angular/{file*}',
+			path: '/jquery/{file*}',
 			handler: {
 				directory: {
-					path: 'bower_components/angular'
-				}
-			}
-		},
-		{
-			method: 'GET',
-			path: '/bower_components/jquery/{file*}',
-			handler: {
-				directory: {
-					path: 'bower_components/jquery/dist'
+					path: 'node_modules/jquery/dist'
 				}
 			}
 		}

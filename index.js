@@ -17,7 +17,7 @@ server.register(require('vision'), (err) => {
             html: require('handlebars')
         },
         relativeTo: __dirname,
-        path: 'src/views'
+        path: 'src/templates'
     });
 });
 
